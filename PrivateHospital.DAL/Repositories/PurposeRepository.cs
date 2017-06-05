@@ -57,5 +57,12 @@ namespace PrivateHospital.DAL.Repositories
             db.Entry(entityToUpdate).State = EntityState.Modified;
             db.SaveChanges();
         }
+
+        public virtual Receipt GetReceipt(int id)
+        {
+            System.Data.SqlClient.SqlParameter param = new System.Data.SqlClient.SqlParameter("@IdPurpose", id);
+            var result = db.Database.SqlQuery<Receipt>("SELECT * FROM dbo.ReceiptService (@IdPurpose)", param).FirstOrDefault();
+            return result;
+        }
     }
 }

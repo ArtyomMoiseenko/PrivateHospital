@@ -25,6 +25,8 @@ namespace PrivateHospital
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/Receipt.css",
+                      "~/Content/MainPage.css",
                       "~/Content/Site.css"));
         }
     }

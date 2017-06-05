@@ -1,0 +1,37 @@
+﻿.s6 {
+  color: #FFFFFF;
+  text-shadow: 1px 1px black;
+  letter-spacing: 1px;
+  border-bottom: 2px solid transparent;
+}
+.s6:hover{
+  color: #9400D3;
+  border-bottom: 2px solid #9400D3;
+  box-shadow: 0 1px 0 white, 0 2px 0 #9400D3;
+}
+
+.table-border-wide{
+  border-collapse: collapse;
+  font-family: "Lucida Grande", sans-serif;
+  margin: auto;
+}
+
+.table-border-wide td, .table-border-wide th {
+  padding: 25px;
+  border: 25px solid #FFFFFF;
+  background: #00BFFF;
+  text-align: center;
+}
+
+.table-border-wide th {
+  text-align: left;
+  font-size: 18px;
+}
+
+.table-border-wide tr:nth-child(2n) {
+  background: #E5E5E5;
+}
+
+.table-border-wide td a, .table-border-wide th a{
+    color: white;
+}

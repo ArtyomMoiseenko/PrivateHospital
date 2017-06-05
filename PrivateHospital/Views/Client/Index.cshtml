@@ -28,12 +28,12 @@
                 <td>@client.Address</td>
                 <td>@client.Phone</td>
                 <td>
-                    @Html.ActionLink("Details", "Details", "Client", new { id = @client.Id }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Delete", "Delete", "Client", new { id = @client.Id }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Edit", "Edit", "Client", new { id = @client.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Подробнее", "Details", "Client", new { id = @client.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Удалить", "Delete", "Client", new { id = @client.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Изменить", "Edit", "Client", new { id = @client.Id }, new { @class = "btn btn-default" })
                 </td>
             </tr>
         }
     }
 </table>
-@Html.ActionLink("Add", "Add", "Client", new { @class = "btn btn-default" })
+@Html.ActionLink("Добавить", "Add", "Client", new { @class = "btn btn-default" })

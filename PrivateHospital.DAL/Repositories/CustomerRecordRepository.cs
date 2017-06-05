@@ -57,5 +57,12 @@ namespace PrivateHospital.DAL.Repositories
             db.Entry(entityToUpdate).State = EntityState.Modified;
             db.SaveChanges();
         }
+
+        public virtual Consultation GetReceipt(int id)
+        {
+            System.Data.SqlClient.SqlParameter param = new System.Data.SqlClient.SqlParameter("@IdCustomerRecord", id);
+            var result = db.Database.SqlQuery<Consultation>("SELECT * FROM dbo.ReceiptConsultation (@IdCustomerRecord)", param).FirstOrDefault();
+            return result;
+        }
     }
 }

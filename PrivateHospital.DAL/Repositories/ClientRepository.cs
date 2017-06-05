@@ -57,5 +57,16 @@ namespace PrivateHospital.DAL.Repositories
             db.Entry(entityToUpdate).State = EntityState.Modified;
             db.SaveChanges();
         }
+
+        public virtual int GetSumAllMoney(int id)
+        {
+            System.Data.SqlClient.SqlParameter param = new System.Data.SqlClient.SqlParameter("@IdClient", id);
+            var result = db.Database.SqlQuery<GiveMoney>("SELECT * FROM dbo.ClientGiveMoney (@IdClient)", param).FirstOrDefault().Sum;
+            return result;
+        }
+        public class GiveMoney
+        {
+            public int Sum { get; set; }
+        }
     }
 }

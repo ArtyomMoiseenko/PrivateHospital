@@ -11,7 +11,8 @@
 <table class="table">
     <tr>
         <th>Клиент</th>
-        <th>Осмотр (стоимость)</th>
+        <th>Консультация</th>
+        <th>Стоимость</th>
         <th>Доктор</th>
         <th>Дата консультации</th>
         <th>Статус выполнения</th>
@@ -25,6 +26,7 @@
                 @(Model.Clients.FirstOrDefault(item => item.Id == Model.ClientId)?.LastName)
                 @(Model.Clients.FirstOrDefault(item => item.Id == Model.ClientId)?.FirstName)
             </td>
+            <td>@Model.Type</td>
             <td>@Model.Cost</td>
             <td>
                 @(Model.Doctors.FirstOrDefault(item => item.Id == Model.DoctorId)?.LastName)
@@ -34,10 +36,38 @@
             <td>@Model.Status</td>
             <td>@Model.PaymentState</td>
             <td>
-                @Html.ActionLink("Delete", "Delete", "CustomerRecord", new { id = @Model.Id }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Edit", "Edit", "CustomerRecord", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Удалить", "Delete", "CustomerRecord", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Изменить", "Edit", "CustomerRecord", new { id = @Model.Id }, new { @class = "btn btn-default" })
             </td>
         </tr>
     }
 </table>
+<br>
+@if (Model.Consultation != null)
+{
+    <table class="table_receipt">
+        <caption>Квитанция</caption>
+        <tr>
+            <th>Клиент</th>
+            <td>@Model.Consultation.Client</td>
+        </tr>
+        <tr>
+            <th>Услуга</th>
+            <td>@Model.Consultation.TypeConsultation</td>
+        </tr>
+        <tr>
+            <th>Доктор</th>
+            <td>@Model.Consultation.Doctor</td>
+        </tr>
+        <tr>
+            <th>Дата выполнения</th>
+            <td>@Model.Consultation.Date</td>
+        </tr>
+        <tr>
+            <th>Стоимость</th>
+            <td>@Model.Consultation.Cost грн</td>
+        </tr>
+    </table>
+    <br>
+}
 @Html.ActionLink("Назад", "Index", "CustomerRecord", new { @class = "btn btn-default" })

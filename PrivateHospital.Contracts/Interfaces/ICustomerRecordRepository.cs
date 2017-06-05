@@ -14,5 +14,7 @@ namespace PrivateHospital.Contracts.Interfaces
         void Update(CustomerRecord reportWithChanges);
 
         void Delete(int id);
+
+        Consultation GetReceipt(int id);
     }
 }

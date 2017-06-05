@@ -17,6 +17,7 @@
         <th>Дата рождения</th>
         <th>Номер телефона</th>
         <th>Скидка</th>
+        <th>Кол-во денег, оставленных клиентом</th>
         <th>Действия</th>
     </tr>
     @if (Model != null)
@@ -29,9 +30,10 @@
             <td>@Model.Birthday.ToShortDateString()</td>
             <td>@Model.Phone</td>
             <td>@Model.Discount</td>
+            <td>@Model.SumAllMoney</td>
             <td>
-                @Html.ActionLink("Delete", "Delete", "Client", new { id = @Model.Id }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Edit", "Edit", "Client", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Удалить", "Delete", "Client", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Изменить", "Edit", "Client", new { id = @Model.Id }, new { @class = "btn btn-default" })
             </td>
         </tr>
     }

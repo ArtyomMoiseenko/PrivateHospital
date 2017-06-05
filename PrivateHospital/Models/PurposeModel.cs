@@ -30,5 +30,7 @@ namespace PrivateHospital.Models
         [Required]
         public int ClientId { get; set; }
         public IEnumerable<Client> Clients { get; set; }
+
+        public Receipt Receipt { get; set; }
     }
 }

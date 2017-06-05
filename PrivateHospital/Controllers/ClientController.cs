@@ -55,6 +55,7 @@ namespace PrivateHospital.Controllers
             model.Birthday = modelClient.Birthday;
             model.Phone = modelClient.Phone;
             model.Discount = modelClient.Discount;
+            model.SumAllMoney = clientRepository.GetSumAllMoney(modelClient.Id);
 
             return View("DetailsClient", model);
         }

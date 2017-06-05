@@ -21,11 +21,11 @@
     @Html.Label("Описание", htmlAttributes: new { @class = "control-label" })
     @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
     <br>
-    @Html.Label("Первичный осмотр", htmlAttributes: new { @class = "control-label" })
+    @Html.Label("Стоимость первичного осмотра", htmlAttributes: new { @class = "control-label" })
     @Html.EditorFor(model => model.PrimaryCost, new { @class = "form-control", type = "text" })
     @Html.ValidationMessageFor(model => model.PrimaryCost)
     <br>
-    @Html.Label("Вторичный осмотр", htmlAttributes: new { @class = "control-label" })
+    @Html.Label("Стоимость вторичного осмотра", htmlAttributes: new { @class = "control-label" })
     @Html.EditorFor(model => model.SecondaryCost, new { @class = "form-control", type = "text" })
     @Html.ValidationMessageFor(model => model.SecondaryCost)
     <input type="submit" class="btn btn-primary" value="Сохранить">

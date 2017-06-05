@@ -11,7 +11,7 @@
 <table class="table">
     <tr>
         <th>Клиент</th>
-        <th>Осмотр (стоимость)</th>
+        <th>Консультация</th>
         <th>Доктор</th>
         <th>Дата консультации</th>
         <th>Статус выполнения</th>
@@ -27,7 +27,7 @@
                     @(customerRecord.Clients.FirstOrDefault(item => item.Id == customerRecord.ClientId)?.LastName)
                     @(customerRecord.Clients.FirstOrDefault(item => item.Id == customerRecord.ClientId)?.FirstName)
                 </td>
-                <td>@customerRecord.Cost</td>
+                <td>@customerRecord.Type</td>
                 <td>
                     @(customerRecord.Doctors.FirstOrDefault(item => item.Id == customerRecord.DoctorId)?.LastName)
                     @(customerRecord.Doctors.FirstOrDefault(item => item.Id == customerRecord.DoctorId)?.FirstName)
@@ -36,12 +36,12 @@
                 <td>@customerRecord.Status</td>
                 <td>@customerRecord.PaymentState</td>
                 <td>
-                    @Html.ActionLink("Details", "Details", "CustomerRecord", new { id = @customerRecord.Id }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Delete", "Delete", "CustomerRecord", new { id = @customerRecord.Id }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Edit", "Edit", "CustomerRecord", new { id = @customerRecord.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Подробнее", "Details", "CustomerRecord", new { id = @customerRecord.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Удалить", "Delete", "CustomerRecord", new { id = @customerRecord.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Изменить", "Edit", "CustomerRecord", new { id = @customerRecord.Id }, new { @class = "btn btn-default" })
                 </td>
             </tr>
         }
     }
 </table>
-@Html.ActionLink("Add", "Add", "CustomerRecord", new { @class = "btn btn-default" })
+@Html.ActionLink("Добавить", "Add", "CustomerRecord", new { @class = "btn btn-default" })

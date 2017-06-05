@@ -13,6 +13,7 @@
         <th>Название сервиса</th>
         <th>Описание</th>
         <th>Стоимость</th>
+        <th>Стоимость со скидкой</th>
         <th>Скидка</th>
         <th>Действия</th>
     </tr>
@@ -22,10 +23,11 @@
             <td>@Model.NameService</td>
             <td>@Model.Description</td>
             <td>@Model.Cost</td>
+            <td>@(Model.Cost - (Model.Discount * Model.Cost / 100))</td>
             <td>@Model.Discount</td>
             <td>
-                @Html.ActionLink("Delete", "Delete", "Service", new { id = @Model.Id }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Edit", "Edit", "Service", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Удалить", "Delete", "Service", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Изменить", "Edit", "Service", new { id = @Model.Id }, new { @class = "btn btn-default" })
             </td>
         </tr>
     }

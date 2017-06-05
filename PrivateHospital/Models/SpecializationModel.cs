@@ -10,13 +10,13 @@ namespace PrivateHospital.Models
         [RegularExpression("[a-zA-ZА-Яа-я]*", ErrorMessage = "Неверный формат ввода")]
         public string NameSpecialization { get; set; }
         [Required]
-        [StringLength(50, MinimumLength = 5, ErrorMessage = "Длина строки должна быть от 5 до 50 символов")]
+        [StringLength(500, MinimumLength = 5, ErrorMessage = "Длина строки должна быть от 5 до 500 символов")]
         public string Description { get; set; }
         [Required]
-        [Range(typeof(int), "0", "500")]
+        [Range(typeof(int), "0", "500", ErrorMessage = "Диапазон стоимости от 0 до 500")]
         public int PrimaryCost { get; set; }
         [Required]
-        [Range(typeof(int), "0", "500")]
+        [Range(typeof(int), "0", "400", ErrorMessage = "Диапазон стоимости от 0 до 400")]
         public int SecondaryCost { get; set; }
     }
 }

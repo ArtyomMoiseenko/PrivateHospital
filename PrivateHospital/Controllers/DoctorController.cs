@@ -59,6 +59,7 @@ namespace PrivateHospital.Controllers
             model.StartDateOfWork = doctor.StartDateOfWork;
             model.SpecializationId = doctor.SpecializationId;
             model.Specializations = specializationRepository.GetAll();
+            model.SumAllMoney = doctorRepository.GetSumAllMoney(doctor.Id);
 
             return View("DetailsDoctor", model);
         }

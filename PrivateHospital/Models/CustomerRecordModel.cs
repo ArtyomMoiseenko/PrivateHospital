@@ -26,5 +26,6 @@ namespace PrivateHospital.Models
         public string Type { get; set; }
         public List<string> VisitType { get; } = new List<string> { "Первичный осмотр", "Вторичный осмотр" };
 
+        public Consultation Consultation { get; set; }
     }
 }

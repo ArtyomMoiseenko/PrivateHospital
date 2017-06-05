@@ -17,6 +17,7 @@
         <th>Номер телефона</th>
         <th>Отделение</th>
         <th>Дата начала работы</th>
+        <th>Доход клинике</th>
         <th>Действия</th>
     </tr>
     @if (Model != null)
@@ -29,9 +30,11 @@
             <td>@Model.Phone</td>
             <td>@Model.Specializations.FirstOrDefault(item => item.Id == Model.SpecializationId).NameSpecialization</td>
             <td>@Model.StartDateOfWork.ToShortDateString()</td>
+            <td>@Model.SumAllMoney</td>
+
             <td>
-                @Html.ActionLink("Delete", "Delete", "Doctor", new { id = @Model.Id }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Edit", "Edit", "Doctor", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Удалить", "Delete", "Doctor", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Изменить", "Edit", "Doctor", new { id = @Model.Id }, new { @class = "btn btn-default" })
             </td>
         </tr>
     }

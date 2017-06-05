@@ -22,14 +22,14 @@
             <tr>
                 <td>@service.NameService</td>
                 <td>@service.Description</td>
-                <td>@service.Cost</td>
+                <td>@(service.Cost - (service.Discount * service.Cost / 100))</td>
                 <td>
-                    @Html.ActionLink("Details", "Details", "Service", new { id = @service.Id }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Delete", "Delete", "Service", new { id = @service.Id }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Edit", "Edit", "Service", new { id = @service.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Подробнее", "Details", "Service", new { id = @service.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Удалить", "Delete", "Service", new { id = @service.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Изменить", "Edit", "Service", new { id = @service.Id }, new { @class = "btn btn-default" })
                 </td>
             </tr>
         }
     }
 </table>
-@Html.ActionLink("Add", "Add", "Service", new { @class = "btn btn-default" })
+@Html.ActionLink("Добавить", "Add", "Service", new { @class = "btn btn-default" })

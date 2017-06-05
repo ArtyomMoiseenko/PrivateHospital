@@ -12,9 +12,7 @@
     <tr>
         <th>Клиент</th>
         <th>Услуга</th>
-        <th>Назначивший врач</th>
-        <th>Дата назначения</th>
-        <th>Выполнивший врач</th>
+        <th>Доктор</th>
         <th>Дата выполнения</th>
         <th>Статус оплаты</th>
         <th>Действия</th>
@@ -30,23 +28,18 @@
                 </td>
                 <td>@(purpose.Services.FirstOrDefault(item => item.Id == purpose.ServiceId)?.NameService)</td>
                 <td>
-                    @(purpose.Doctors.FirstOrDefault(item => item.Id == purpose.DoctorPurposeId)?.LastName)
-                    @(purpose.Doctors.FirstOrDefault(item => item.Id == purpose.DoctorPurposeId)?.FirstName)
-                </td>
-                <td>@purpose.DatePurposeService.ToShortDateString()</td>
-                <td>
                     @(purpose.Doctors.FirstOrDefault(item => item.Id == purpose.DoctorPerformId)?.LastName)
                     @(purpose.Doctors.FirstOrDefault(item => item.Id == purpose.DoctorPerformId)?.FirstName)
                 </td>
                 <td>@purpose.DatePerformService.ToShortDateString()</td>
                 <td>@purpose.PaymentState</td>
                 <td>
-                    @Html.ActionLink("Details", "Details", "Purpose", new { id = @purpose.Id }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Delete", "Delete", "Purpose", new { id = @purpose.Id }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Edit", "Edit", "Purpose", new { id = @purpose.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Подробнее", "Details", "Purpose", new { id = @purpose.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Удалить", "Delete", "Purpose", new { id = @purpose.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Изменить", "Edit", "Purpose", new { id = @purpose.Id }, new { @class = "btn btn-default" })
                 </td>
             </tr>
         }
     }
 </table>
-@Html.ActionLink("Add", "Add", "Purpose", new { @class = "btn btn-default" })
+@Html.ActionLink("Добавить", "Add", "Purpose", new { @class = "btn btn-default" })

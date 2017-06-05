@@ -12,9 +12,9 @@
     <tr>
         <th>Клиент</th>
         <th>Услуга</th>
-        <th>Назначивший врач</th>
+        <th>Назначивший доктор</th>
         <th>Дата назначения</th>
-        <th>Выполнивший врач</th>
+        <th>Выполнивший доктор</th>
         <th>Дата выполнения</th>
         <th>Статус оплаты</th>
         <th>Действия</th>
@@ -39,10 +39,38 @@
             <td>@Model.DatePerformService.ToShortDateString()</td>
             <td>@Model.PaymentState</td>
             <td>
-                @Html.ActionLink("Delete", "Delete", "Purpose", new { id = @Model.Id }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Edit", "Edit", "Purpose", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Удалить", "Delete", "Purpose", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Изменить", "Edit", "Purpose", new { id = @Model.Id }, new { @class = "btn btn-default" })
             </td>
         </tr>
     }
 </table>
+<br>
+@if (Model.Receipt != null)
+{
+    <table class="table_receipt">
+        <caption>Квитанция</caption>
+        <tr>
+            <th>Клиент</th>
+            <td>@Model.Receipt.Client</td>
+        </tr>
+        <tr>
+            <th>Услуга</th>
+            <td>@Model.Receipt.Service</td>
+        </tr>
+        <tr>
+            <th>Доктор</th>
+            <td>@Model.Receipt.Doctor</td>
+        </tr>
+        <tr>
+            <th>Дата выполнения</th>
+            <td>@Model.Receipt.Date.ToShortDateString()</td>
+        </tr>
+        <tr>
+            <th>Стоимость</th>
+            <td>@Model.Receipt.Cost грн</td>
+        </tr>
+    </table>
+    <br>
+}
 @Html.ActionLink("Назад", "Index", "Purpose", new { @class = "btn btn-default" })

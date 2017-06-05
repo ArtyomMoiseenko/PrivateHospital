@@ -14,5 +14,7 @@ namespace PrivateHospital.Contracts.Interfaces
         void Update(Doctor reportWithChanges);
 
         void Delete(int id);
+
+        int GetSumAllMoney(int id);
     }
 }

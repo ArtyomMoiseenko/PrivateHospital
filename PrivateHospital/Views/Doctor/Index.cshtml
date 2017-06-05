@@ -28,12 +28,12 @@
                 <td>@doctor.Phone</td>
                 <td>@(doctor.Specializations.FirstOrDefault(item => item.Id == doctor.SpecializationId)?.NameSpecialization)</td>
                 <td>
-                    @Html.ActionLink("Details", "Details", "Doctor", new { id = @doctor.Id }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Delete", "Delete", "Doctor", new { id = @doctor.Id }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Edit", "Edit", "Doctor", new { id = @doctor.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Подробнее", "Details", "Doctor", new { id = @doctor.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Удалить", "Delete", "Doctor", new { id = @doctor.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Изменить", "Edit", "Doctor", new { id = @doctor.Id }, new { @class = "btn btn-default" })
                 </td>
             </tr>
         }
     }
 </table>
-@Html.ActionLink("Add", "Add", "Doctor", new { @class = "btn btn-default" })
+@Html.ActionLink("Добавить", "Add", "Doctor", new { @class = "btn btn-default" })

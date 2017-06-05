@@ -2,7 +2,6 @@
 using PrivateHospital.Contracts.Interfaces;
 using PrivateHospital.DAL.Repositories;
 using PrivateHospital.Models;
-using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -67,6 +66,7 @@ namespace PrivateHospital.Controllers
             model.Clients = clientRepository.GetAll();
             model.Doctors = doctorRepository.GetAll();
             model.Services = serviceRepository.GetAll();
+            model.Receipt = purposeRepository.GetReceipt(purpose.Id);
 
             return View("DetailsPurpose", model);
         }

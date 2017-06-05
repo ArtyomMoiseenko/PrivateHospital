@@ -26,6 +26,7 @@ namespace PrivateHospital.Models
         [DataType(DataType.Date)]
         public DateTime Birthday { get; set; }
         [Required]
+        [RegularExpression("^[0-9 ]+$", ErrorMessage = "Неверный формат ввода")]
         public long Phone { get; set; }
         [Required]
         [DataType(DataType.Date)]
@@ -34,5 +35,7 @@ namespace PrivateHospital.Models
         [Required]
         public int SpecializationId { get; set; }
         public IEnumerable<Specialization> Specializations { get; set; }
+        [Required]
+        public int SumAllMoney { get; set; }
     }
 }

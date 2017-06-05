@@ -39,6 +39,7 @@ namespace PrivateHospital.Controllers
                         PaymentState = item.PaymentState,
                         ClientId = item.ClientId,
                         DoctorId = item.DoctorId,
+                        Type = item.Type,
                         Cost = item.Cost,
                         Clients = clientRepository.GetAll(),
                         Doctors = doctorRepository.GetAll()
@@ -60,9 +61,11 @@ namespace PrivateHospital.Controllers
             model.PaymentState = customerRecord.PaymentState;
             model.ClientId = customerRecord.ClientId;
             model.DoctorId = customerRecord.DoctorId;
+            model.Type = customerRecord.Type;
             model.Cost = customerRecord.Cost;
             model.Clients = clientRepository.GetAll();
             model.Doctors = doctorRepository.GetAll();
+            model.Consultation = customerRecordRepository.GetReceipt(customerRecord.Id);
 
             return View("DetailsCustomerRecord", model);
         }

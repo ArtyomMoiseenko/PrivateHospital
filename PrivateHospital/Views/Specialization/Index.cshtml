@@ -22,12 +22,12 @@
                 <td>@specialization.NameSpecialization</td>
                 <td>@specialization.Description</td>
                 <td>
-                    @Html.ActionLink("Details", "Details", "Specialization", new { id = @specialization.Id }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Delete", "Delete", "Specialization", new { id = @specialization.Id }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Edit", "Edit", "Specialization", new { id = @specialization.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Подробнее", "Details", "Specialization", new { id = @specialization.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Удалить", "Delete", "Specialization", new { id = @specialization.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Изменить", "Edit", "Specialization", new { id = @specialization.Id }, new { @class = "btn btn-default" })
                 </td>
             </tr>
         }
     }
 </table>
-@Html.ActionLink("Add", "Add", "Specialization", new { @class = "btn btn-default" })
+@Html.ActionLink("Добавить", "Add", "Specialization", new { @class = "btn btn-default" })
