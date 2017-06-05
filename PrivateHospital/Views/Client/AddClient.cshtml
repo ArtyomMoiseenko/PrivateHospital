@@ -1,0 +1,74 @@
+﻿@using PrivateHospital.Models
+
+@model ClientModel
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@{
+    ViewBag.Title = "Клиент";
+}
+
+<h2>Добавить данные о новом клиенте</h2>
+
+@using (Html.BeginForm("Add", "Client", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="editor-label">
+        @Html.Label("Фамилия", htmlAttributes: new { @class = "control-label" })
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.LastName)
+        <br>
+    </div>
+    <div class="editor-label">
+        @Html.Label("Имя", htmlAttributes: new { @class = "control-label" })
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.FirstName)
+    </div>
+    <div class="editor-label">
+        @Html.Label("Отчество", htmlAttributes: new { @class = "control-label" })
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.MiddleName)
+    </div>
+    <div class="editor-label">
+        @Html.Label("Адрес", htmlAttributes: new { @class = "control-label" })
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Address)
+    </div>
+    <div class="editor-label">
+        @Html.Label("Дата рождения", htmlAttributes: new { @class = "control-label" })
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+        @Html.ValidationMessageFor(model => model.Birthday)
+    </div>
+    <div class="editor-label">
+        @Html.Label("Номер телефона", htmlAttributes: new { @class = "control-label" })
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", type = "tel", pattern = "380[0-9]{2}-[0-9]{3}-[0-9]{4}" } })
+        @Html.ValidationMessageFor(model => model.Phone)
+    </div>
+    <div class="editor-label">
+        @Html.Label("Скидка", htmlAttributes: new { @class = "control-label" })
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Discount)
+    </div>
+    <br>
+    <input type="submit" class="btn btn-primary" value="Сохранить">
+    }
+    <br>
+    @Html.ActionLink("Назад", "Index", "Client", new { @class = "btn btn-default" })

@@ -1,0 +1,51 @@
+﻿@using PrivateHospital.Models
+
+@model DoctorModel
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@{
+    ViewBag.Title = "Доктор";
+}
+
+<h2>Добавить данные о новом докторе</h2>
+
+@using (Html.BeginForm("Add", "Doctor", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.Id)
+    
+    @Html.Label("Фамилия", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.LastName)
+    <br>
+    @Html.Label("Имя", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.FirstName)
+    <br>
+    @Html.Label("Отчество", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.MiddleName)
+    <br>
+    @Html.Label("Дата рождения", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+    @Html.ValidationMessageFor(model => model.Birthday)
+    <br>
+    @Html.Label("Номер телефона", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", type = "tel", pattern = "380[0-9]{2}-[0-9]{3}-[0-9]{4}" } })
+    @Html.ValidationMessageFor(model => model.Phone)
+    <br>
+    @Html.Label("Отделение", htmlAttributes: new { @class = "control-label" })
+    @Html.DropDownListFor(model => model.SpecializationId, new SelectList(Model.Specializations, "Id", "NameSpecialization"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.SpecializationId)
+    <br>
+    @Html.Label("Дата начала работы", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.StartDateOfWork, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+    @Html.ValidationMessageFor(model => model.StartDateOfWork)
+    <br>
+    <input type="submit" class="btn btn-primary" value="Сохранить">
+}
+<br>
+@Html.ActionLink("Назад", "Index", "Doctor", new { @class = "btn btn-default" })

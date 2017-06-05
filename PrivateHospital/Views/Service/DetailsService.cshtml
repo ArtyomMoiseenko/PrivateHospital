@@ -1,0 +1,33 @@
+﻿@using PrivateHospital.Models
+
+@model ServiceModel
+
+@{
+    ViewBag.Title = "Услуга";
+}
+
+<h2>Услуга</h2>
+
+<table class="table">
+    <tr>
+        <th>Название сервиса</th>
+        <th>Описание</th>
+        <th>Стоимость</th>
+        <th>Скидка</th>
+        <th>Действия</th>
+    </tr>
+    @if (Model != null)
+    {
+        <tr>
+            <td>@Model.NameService</td>
+            <td>@Model.Description</td>
+            <td>@Model.Cost</td>
+            <td>@Model.Discount</td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", "Service", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Edit", "Edit", "Service", new { id = @Model.Id }, new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Назад", "Index", "Service", new { @class = "btn btn-default" })

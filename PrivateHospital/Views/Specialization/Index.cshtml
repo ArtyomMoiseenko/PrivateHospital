@@ -1,0 +1,33 @@
+﻿@using PrivateHospital.Models
+
+@model IEnumerable<SpecializationModel>
+
+@{
+    ViewBag.Title = "Отделения";
+}
+
+<h2>Отделения в клинике</h2>
+
+<table class="table">
+    <tr>
+        <th>Название отделения</th>
+        <th>Описание</th>
+        <th>Действия</th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (SpecializationModel specialization in Model)
+        {
+            <tr>
+                <td>@specialization.NameSpecialization</td>
+                <td>@specialization.Description</td>
+                <td>
+                    @Html.ActionLink("Details", "Details", "Specialization", new { id = @specialization.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Delete", "Delete", "Specialization", new { id = @specialization.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Edit", "Edit", "Specialization", new { id = @specialization.Id }, new { @class = "btn btn-default" })
+                </td>
+            </tr>
+        }
+    }
+</table>
+@Html.ActionLink("Add", "Add", "Specialization", new { @class = "btn btn-default" })

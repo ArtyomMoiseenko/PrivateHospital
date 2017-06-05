@@ -1,0 +1,49 @@
+﻿@using PrivateHospital.Models
+
+@model PurposeModel
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@{
+    ViewBag.Title = "Назначение";
+}
+
+<h2>Изменить данные о назначении</h2>
+
+@using (Html.BeginForm("Edit", "Purpose", FormMethod.Post))
+{
+    @Html.Label("Клиент", htmlAttributes: new { @class = "control-label" })
+    @Html.DropDownListFor(model => model.ClientId, new SelectList(Model.Clients, "Id", "LastName"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ClientId)
+    <br>
+    @Html.Label("Услуга", htmlAttributes: new { @class = "control-label" })
+    @Html.DropDownListFor(model => model.ServiceId, new SelectList(Model.Services, "Id", "NameService"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ServiceId)
+    <br>
+    @Html.Label("Доктор, назначивший услугу", htmlAttributes: new { @class = "control-label" })
+    @Html.DropDownListFor(model => model.DoctorPurposeId, new SelectList(Model.Doctors, "Id", "LastName"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.DoctorPurposeId)
+    <br>
+    @Html.Label("Дата назначения услуги", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.DatePurposeService, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+    @Html.ValidationMessageFor(model => model.DatePurposeService)
+    <br>
+    @Html.Label("Доктор, выполнивший услугу", htmlAttributes: new { @class = "control-label" })
+    @Html.DropDownListFor(model => model.DoctorPerformId, new SelectList(Model.Doctors, "Id", "LastName"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.DoctorPerformId)
+    <br>
+    @Html.Label("Дата выполнения услуги", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.DatePerformService, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+    @Html.ValidationMessageFor(model => model.DatePerformService)
+    <br>
+    @Html.Label("Статус оплаты услуги", htmlAttributes: new { @class = "control-label" })
+    @Html.DropDownListFor(model => model.PaymentState, new SelectList(new List<string> { "Оплачено", "Не оплачен" }), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.PaymentState)
+    <br>
+    <input type="submit" class="btn btn-primary" value="Сохранить">
+}
+<br>
+@Html.ActionLink("Назад", "Index", "Purpose", new { @class = "btn btn-default" })

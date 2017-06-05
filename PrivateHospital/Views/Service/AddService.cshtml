@@ -1,0 +1,37 @@
+﻿@using PrivateHospital.Models
+
+@model ServiceModel
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@{
+    ViewBag.Title = "Услуга";
+}
+
+<h2>Добавить данные о новой услуге</h2>
+
+@using (Html.BeginForm("Add", "Service", FormMethod.Post))
+{
+    @Html.Label("Название услуги", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.NameService, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.NameService)
+    <br>
+    @Html.Label("Описание услуги", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Description)
+    <br>
+    @Html.Label("Стоимость", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control", type = "text" } })
+    @Html.ValidationMessageFor(model => model.Cost)
+    <br>
+    @Html.Label("Скидка", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control", type = "text" } })
+    @Html.ValidationMessageFor(model => model.Discount)
+    <br>
+    <input type="submit" class="btn btn-primary" value="Сохранить">
+}
+<br>
+@Html.ActionLink("Назад", "Index", "Service", new { @class = "btn btn-default" })

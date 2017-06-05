@@ -1,0 +1,37 @@
+﻿@using PrivateHospital.Models
+
+@model SpecializationModel
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@{
+    ViewBag.Title = "Отделение";
+}
+
+<h2>Добавить данные о новом отделении</h2>
+
+@using (Html.BeginForm("Add", "Specialization", FormMethod.Post))
+{
+    @Html.Label("Название отделения", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.NameSpecialization, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.NameSpecialization)
+    <br>
+    @Html.Label("Описание", htmlAttributes: new { @class = "control-label" })
+    @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Description)
+    <br>
+    @Html.Label("Первичный осмотр", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.PrimaryCost, new { htmlAttributes = new { @class = "form-control", type = "text" } })
+    @Html.ValidationMessageFor(model => model.PrimaryCost)
+    <br>
+    @Html.Label("Вторичный осмотр", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.SecondaryCost, new { htmlAttributes = new { @class = "form-control", type = "text" } })
+    @Html.ValidationMessageFor(model => model.SecondaryCost)
+    <br>
+    <input type="submit" class="btn btn-primary" value="Сохранить">
+}
+<br>
+@Html.ActionLink("Назад", "Index", "Specialization", new { @class = "btn btn-default" })

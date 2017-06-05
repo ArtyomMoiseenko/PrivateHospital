@@ -1,0 +1,36 @@
+﻿@*@using Metod_Lab5.Models
+
+@model MatrixGamesModel
+*@
+
+@{
+    ViewBag.Title = "Главная";
+}
+
+<script type="text/javascript">
+    window.MATRIX_ENTER_URL = '@Url.Action("EnterMatrix", "Home")';
+</script>
+
+<div class="jumbotron">
+    <h1>Частная клиника - Твой доктор</h1>
+    <p class="lead">
+        <br>
+        @Html.ActionLink("Работа с отделениями в клинике", "Index", "Specialization", null, new { @class = "btn btn-primary btn-lg" })
+        <br>
+        <br>
+        @Html.ActionLink("Работа с докторами в клинике", "Index", "Doctor", null, new { @class = "btn btn-primary btn-lg" })
+        <br>
+        <br>
+        @Html.ActionLink("Работа с клиентами в клинике", "Index", "Client", null, new { @class = "btn btn-primary btn-lg" })
+        <br>
+        <br>
+        @*@Url.Action("Работа с услугами в клинике", "Index", "Service", new { @class = "btn btn-primary btn-lg" })
+        @Url.Action("Работа с назначением клиентам услуг", "Index", "Purpose", new { @class = "btn btn-primary btn-lg" })
+        @Url.Action("Работа с записью клиента на консультацию", "Index", "CustomerRecord", new { @class = "btn btn-primary btn-lg" })*@
+    <p>
+    </p>
+    <div id="matrix"></div>
+    <p>
+        <div id="solution"></div>
+    </p>
+</div>

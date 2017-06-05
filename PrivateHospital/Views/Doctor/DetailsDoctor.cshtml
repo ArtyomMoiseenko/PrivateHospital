@@ -1,0 +1,40 @@
+﻿@using PrivateHospital.Models
+
+@model DoctorModel
+
+@{
+    ViewBag.Title = "Доктор";
+}
+
+<h2>Информация о докторе</h2>
+
+<table class="table">
+    <tr>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>Дата рождения</th>
+        <th>Номер телефона</th>
+        <th>Отделение</th>
+        <th>Дата начала работы</th>
+        <th>Действия</th>
+    </tr>
+    @if (Model != null)
+    {
+        <tr>
+            <td>@Model.LastName</td>
+            <td>@Model.FirstName</td>
+            <td>@Model.MiddleName</td>
+            <td>@Model.Birthday.ToShortDateString()</td>
+            <td>@Model.Phone</td>
+            <td>@Model.Specializations.FirstOrDefault(item => item.Id == Model.SpecializationId).NameSpecialization</td>
+            <td>@Model.StartDateOfWork.ToShortDateString()</td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", "Doctor", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Edit", "Edit", "Doctor", new { id = @Model.Id }, new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    }
+</table>
+<br>
+@Html.ActionLink("Назад", "Index", "Doctor", new { @class = "btn btn-default" })

@@ -1,0 +1,47 @@
+﻿@using PrivateHospital.Models
+
+@model IEnumerable<CustomerRecordModel>
+
+@{
+    ViewBag.Title = "Консультации";
+}
+
+<h2>Консультации</h2>
+
+<table class="table">
+    <tr>
+        <th>Клиент</th>
+        <th>Осмотр (стоимость)</th>
+        <th>Доктор</th>
+        <th>Дата консультации</th>
+        <th>Статус выполнения</th>
+        <th>Статус оплаты</th>
+        <th>Действия</th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (CustomerRecordModel customerRecord in Model)
+        {
+            <tr>
+                <td>
+                    @(customerRecord.Clients.FirstOrDefault(item => item.Id == customerRecord.ClientId)?.LastName)
+                    @(customerRecord.Clients.FirstOrDefault(item => item.Id == customerRecord.ClientId)?.FirstName)
+                </td>
+                <td>@customerRecord.Cost</td>
+                <td>
+                    @(customerRecord.Doctors.FirstOrDefault(item => item.Id == customerRecord.DoctorId)?.LastName)
+                    @(customerRecord.Doctors.FirstOrDefault(item => item.Id == customerRecord.DoctorId)?.FirstName)
+                </td>
+                <td>@customerRecord.DateAndTimeOfRecord</td>
+                <td>@customerRecord.Status</td>
+                <td>@customerRecord.PaymentState</td>
+                <td>
+                    @Html.ActionLink("Details", "Details", "CustomerRecord", new { id = @customerRecord.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Delete", "Delete", "CustomerRecord", new { id = @customerRecord.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Edit", "Edit", "CustomerRecord", new { id = @customerRecord.Id }, new { @class = "btn btn-default" })
+                </td>
+            </tr>
+        }
+    }
+</table>
+@Html.ActionLink("Add", "Add", "CustomerRecord", new { @class = "btn btn-default" })

@@ -1,0 +1,43 @@
+﻿@using PrivateHospital.Models
+
+@model CustomerRecordModel
+
+@{
+    ViewBag.Title = "Консультация";
+}
+
+<h2>Консультация</h2>
+
+<table class="table">
+    <tr>
+        <th>Клиент</th>
+        <th>Осмотр (стоимость)</th>
+        <th>Доктор</th>
+        <th>Дата консультации</th>
+        <th>Статус выполнения</th>
+        <th>Статус оплаты</th>
+        <th>Действия</th>
+    </tr>
+    @if (Model != null)
+    {
+        <tr>
+            <td>
+                @(Model.Clients.FirstOrDefault(item => item.Id == Model.ClientId)?.LastName)
+                @(Model.Clients.FirstOrDefault(item => item.Id == Model.ClientId)?.FirstName)
+            </td>
+            <td>@Model.Cost</td>
+            <td>
+                @(Model.Doctors.FirstOrDefault(item => item.Id == Model.DoctorId)?.LastName)
+                @(Model.Doctors.FirstOrDefault(item => item.Id == Model.DoctorId)?.FirstName)
+            </td>
+            <td>@Model.DateAndTimeOfRecord</td>
+            <td>@Model.Status</td>
+            <td>@Model.PaymentState</td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", "CustomerRecord", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Edit", "Edit", "CustomerRecord", new { id = @Model.Id }, new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Назад", "Index", "CustomerRecord", new { @class = "btn btn-default" })

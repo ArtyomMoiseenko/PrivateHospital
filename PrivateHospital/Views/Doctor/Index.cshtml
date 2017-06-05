@@ -1,0 +1,39 @@
+﻿@using PrivateHospital.Models
+
+@model IEnumerable<DoctorModel>
+
+@{
+    ViewBag.Title = "Доктора";
+}
+
+<h2>Доктора</h2>
+
+<table class="table">
+    <tr>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>Номер телефона</th>
+        <th>Отделение</th>
+        <th>Действия</th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (DoctorModel doctor in Model)
+        {
+            <tr>
+                <td>@doctor.LastName</td>
+                <td>@doctor.FirstName</td>
+                <td>@doctor.MiddleName</td>
+                <td>@doctor.Phone</td>
+                <td>@(doctor.Specializations.FirstOrDefault(item => item.Id == doctor.SpecializationId)?.NameSpecialization)</td>
+                <td>
+                    @Html.ActionLink("Details", "Details", "Doctor", new { id = @doctor.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Delete", "Delete", "Doctor", new { id = @doctor.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Edit", "Edit", "Doctor", new { id = @doctor.Id }, new { @class = "btn btn-default" })
+                </td>
+            </tr>
+        }
+    }
+</table>
+@Html.ActionLink("Add", "Add", "Doctor", new { @class = "btn btn-default" })

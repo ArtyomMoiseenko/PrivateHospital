@@ -1,0 +1,45 @@
+﻿@using PrivateHospital.Models
+
+@model CustomerRecordModel
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@{
+    ViewBag.Title = "Консультация";
+}
+
+<h2>Добавить данные о новой консультации</h2>
+
+@using (Html.BeginForm("Add", "CustomerRecord", FormMethod.Post))
+{
+    @Html.Label("Клиент", htmlAttributes: new { @class = "control-label" })
+    @Html.DropDownListFor(model => model.ClientId, new SelectList(Model.Clients, "Id", "LastName"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ClientId)
+    <br>
+    @Html.Label("Вид консультации", htmlAttributes: new { @class = "control-label" })
+    @Html.DropDownListFor(model => model.Type, new SelectList(Model.VisitType), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Type)
+    <br>
+    @Html.Label("Доктор", htmlAttributes: new { @class = "control-label" })
+    @Html.DropDownListFor(model => model.DoctorId, new SelectList(Model.Doctors, "Id", "LastName"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.DoctorId)
+    <br>
+    @Html.Label("Дата консультации", htmlAttributes: new { @class = "control-label" })
+    @Html.EditorFor(model => model.DateAndTimeOfRecord, new { htmlAttributes = new { @class = "form-control", type = "datetime" } })
+    @Html.ValidationMessageFor(model => model.DateAndTimeOfRecord)
+    <br>
+    @Html.Label("Статус выполнения", htmlAttributes: new { @class = "control-label" })
+    @Html.DropDownListFor(model => model.Status, new SelectList(new List<string> { "Выполнено", "Не выполнено" }), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Status)
+    <br>
+    @Html.Label("Статус оплаты", htmlAttributes: new { @class = "control-label" })
+    @Html.DropDownListFor(model => model.PaymentState, new SelectList(new List<string> { "Оплачено", "Не оплачен" }), new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.PaymentState)
+    <br>
+    <input type="submit" class="btn btn-primary" value="Сохранить">
+}
+<br>
+@Html.ActionLink("Назад", "Index", "CustomerRecord", new { @class = "btn btn-default" })

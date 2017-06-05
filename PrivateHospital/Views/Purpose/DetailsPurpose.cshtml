@@ -1,0 +1,48 @@
+﻿@using PrivateHospital.Models
+
+@model PurposeModel
+
+@{
+    ViewBag.Title = "Назначение";
+}
+
+<h2>Назначение</h2>
+
+<table class="table">
+    <tr>
+        <th>Клиент</th>
+        <th>Услуга</th>
+        <th>Назначивший врач</th>
+        <th>Дата назначения</th>
+        <th>Выполнивший врач</th>
+        <th>Дата выполнения</th>
+        <th>Статус оплаты</th>
+        <th>Действия</th>
+    </tr>
+    @if (Model != null)
+    {
+        <tr>
+            <td>
+                @(Model.Clients.FirstOrDefault(item => item.Id == Model.ClientId)?.LastName)
+                @(Model.Clients.FirstOrDefault(item => item.Id == Model.ClientId)?.FirstName)
+            </td>
+            <td>@(Model.Services.FirstOrDefault(item => item.Id == Model.ServiceId)?.NameService)</td>
+            <td>
+                @(Model.Doctors.FirstOrDefault(item => item.Id == Model.DoctorPurposeId)?.LastName)
+                @(Model.Doctors.FirstOrDefault(item => item.Id == Model.DoctorPurposeId)?.FirstName)
+            </td>
+            <td>@Model.DatePurposeService.ToShortDateString()</td>
+            <td>
+                @(Model.Doctors.FirstOrDefault(item => item.Id == Model.DoctorPerformId)?.LastName)
+                @(Model.Doctors.FirstOrDefault(item => item.Id == Model.DoctorPerformId)?.FirstName)
+            </td>
+            <td>@Model.DatePerformService.ToShortDateString()</td>
+            <td>@Model.PaymentState</td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", "Purpose", new { id = @Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Edit", "Edit", "Purpose", new { id = @Model.Id }, new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Назад", "Index", "Purpose", new { @class = "btn btn-default" })

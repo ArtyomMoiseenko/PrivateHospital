@@ -1,0 +1,12 @@
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.DAL\bin\Debug\PrivateHospital.DAL.dll.config
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.DAL\bin\Debug\PrivateHospital.DAL.dll
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.DAL\bin\Debug\PrivateHospital.DAL.pdb
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.DAL\bin\Debug\EntityFramework.dll
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.DAL\bin\Debug\PrivateHospital.Contracts.dll
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.DAL\bin\Debug\PrivateHospital.Contracts.pdb
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.DAL\bin\Debug\EntityFramework.xml
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.DAL\obj\Debug\PrivateHospital.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.DAL\obj\Debug\PrivateHospital.DAL.dll
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.DAL\obj\Debug\PrivateHospital.DAL.pdb

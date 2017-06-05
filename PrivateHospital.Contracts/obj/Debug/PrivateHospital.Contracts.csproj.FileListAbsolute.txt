@@ -1,0 +1,10 @@
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.Contracts\bin\Debug\PrivateHospital.Contracts.dll.config
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.Contracts\bin\Debug\PrivateHospital.Contracts.dll
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.Contracts\bin\Debug\PrivateHospital.Contracts.pdb
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.Contracts\bin\Debug\EntityFramework.dll
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.Contracts\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.Contracts\bin\Debug\EntityFramework.xml
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.Contracts\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.Contracts\obj\Debug\PrivateHospital.Contracts.csprojResolveAssemblyReference.cache
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.Contracts\obj\Debug\PrivateHospital.Contracts.dll
+C:\Users\Artyom\Documents\Visual Studio 2015\Projects\PrivateHospital\PrivateHospital.Contracts\obj\Debug\PrivateHospital.Contracts.pdb

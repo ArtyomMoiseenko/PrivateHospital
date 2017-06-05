@@ -1,0 +1,35 @@
+﻿@using PrivateHospital.Models
+
+@model IEnumerable<ServiceModel>
+
+@{
+    ViewBag.Title = "Услуги";
+}
+
+<h2>Услуги в клинике</h2>
+
+<table class="table">
+    <tr>
+        <th>Название сервиса</th>
+        <th>Описание</th>
+        <th>Стоимость</th>
+        <th>Действия</th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (ServiceModel service in Model)
+        {
+            <tr>
+                <td>@service.NameService</td>
+                <td>@service.Description</td>
+                <td>@service.Cost</td>
+                <td>
+                    @Html.ActionLink("Details", "Details", "Service", new { id = @service.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Delete", "Delete", "Service", new { id = @service.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Edit", "Edit", "Service", new { id = @service.Id }, new { @class = "btn btn-default" })
+                </td>
+            </tr>
+        }
+    }
+</table>
+@Html.ActionLink("Add", "Add", "Service", new { @class = "btn btn-default" })
